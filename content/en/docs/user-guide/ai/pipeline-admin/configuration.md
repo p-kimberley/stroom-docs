@@ -46,6 +46,8 @@ Property | Description
 
 Templates are looked for in the configured folders first, then among pipelines that working pipelines already inherit from, then in Stroom's standard templates.
 If no template has the parser the samples need, the agent offers a template with its parser replaced; only if there is no translation template at all does it build an events pipeline of its own.
+Likewise, only if there is no discovery template does it build a discovery pipeline of its own.
+So that new pipelines inherit from your templates, make sure each stage you use (including `discovery` and `reference`) can find them.
 
 Set the folders and names to your own templates, so that new pipelines inherit from them, and the schema groups and stream types if your templates validate against other schema groups or write other stream types.
 

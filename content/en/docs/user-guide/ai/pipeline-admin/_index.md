@@ -14,7 +14,7 @@ description: >
 The agent can do much of the work of a pipeline administrator with you: onboard a new source of data from its samples to its indexed events, and look into, fix, change and reprocess the pipelines you already have.
 It works in [Ask Stroom AI]({{< relref "../ask-stroom-ai" >}}), or in an MCP client such as VS Code or Claude Code through [Stroom's MCP endpoint]({{< relref "../agent-tools" >}}), with the same tools.
 
-* [Onboarding a data source]({{< relref "onboarding" >}}): building a feed, its translation, its pipelines and its index, from samples, in a build that is promoted when it is done.
+* [Onboarding a data source]({{< relref "onboarding" >}}): building a feed, its translation, its pipelines and its index, from samples, in a build that is promoted when it is done; or a discovery index of raw data, or reference data.
 * [Editing pipelines]({{< relref "editing-pipelines" >}}): stepping, fixing translations, new versions of production pipelines, reference data, processing, and finding why processing fails.
 * [Configuring for your environment]({{< relref "configuration" >}}): pipeline templates and stages, the build folder, error triage rules and field conventions.
 

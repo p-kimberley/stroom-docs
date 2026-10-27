@@ -52,6 +52,8 @@ The agent proposes changes rather than making them where it can: a change to a q
 * _"Which data sources can I query for firewall events?"_
 * _"Which fields does the Windows Events index have, and which searches on it would mislead?"_
 * _"Onboard the ACME firewall logs; samples are in stream 123"_ (see [Onboarding a data source]({{< relref "../pipeline-admin/onboarding" >}}))
+* _"Index the raw ACME JSON as it is, so I can see what's in it"_ (a discovery index)
+* _"Load the asset list in stream 789 as reference data"_
 
 
 ## Pipelines and Translations

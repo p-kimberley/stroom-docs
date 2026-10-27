@@ -83,8 +83,8 @@ Creating and changing Stroom documents: feeds, pipelines, translations, text con
 
 Tool | What it does | Changes
 -- | -- | --
-`start_onboarding` | Starts onboarding a source: makes its build and profiles the samples to tell their format and fields. | Build only
-`start_build` | Creates (or finds) a build's workspace folder. | Build only
+`start_onboarding` | Starts onboarding a source as events, a discovery index or reference data: makes its build and profiles the samples to tell their format and fields. | Build only
+`start_build` | Creates (or finds) a build's workspace folder, for events, a discovery index or reference data, optionally from feeds already holding data. | Build only
 `build_status` | Where an onboarding build stands: its next step, what is left before promotion, and each step's state. | No
 `promote_build` | Moves a finished build's documents to their final folders, once the user has seen where everything goes and approved it. | Yes, confirms
 `create_feed` | Creates a feed in the build folder, under a name the user confirms. | Yes, confirms
@@ -125,7 +125,7 @@ Tool | What it does | Changes
 `propose_index_template` | Builds the Elasticsearch index template for the indexing pipeline's destination index, for the cluster admin to apply. | Yes, confirms
 `check_index_template` | Checks a user's Elasticsearch index template, and its component templates, against the indexing pipeline. | Yes, confirms
 `create_index_doc` | Creates the build's index document. | Yes, confirms
-`create_indexing_pipeline` | Creates the build's indexing pipeline. | Build only
+`create_indexing_pipeline` | Creates the build's indexing pipeline from a template, or, with no discovery template in Stroom, a discovery pipeline of its own. | Build only
 `rename_index` | Uses another Elasticsearch index name wherever the build uses one. | Yes, confirms
 `verify_index` | Verifies indexed events through Stroom (a workspace dashboard on the index, then test searches), rather than by querying the backend. | Yes, confirms
 `elastic_index_templates` | Reads the index template and component templates that apply to an Elastic Index document's index, from its cluster. | No
