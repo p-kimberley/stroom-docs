@@ -12,7 +12,7 @@ description: >
 
 Stroom offers AI help in two ways, which share one set of tools:
 
-* [Ask Stroom AI]({{< relref "ask-stroom-ai" >}}): a chat inside Stroom, in which a model answers questions about Stroom and your data, and builds and changes content with you.
+* [Ask Stroom AI]({{< relref "ask-stroom-ai" >}}): A chat inside Stroom, in which a model answers questions about Stroom and your data, and builds and changes content with you.
 
 * [Agent Tools]({{< relref "agent-tools" >}}): Stroom's tools offered to AI agents outside Stroom (e.g. VS Code, Claude Code or Claude Desktop) through Stroom's MCP endpoint, `/mcp`.
 

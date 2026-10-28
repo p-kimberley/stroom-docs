@@ -85,8 +85,8 @@ An attached tab's snapshot is limited by `stroom.ai.maxTabSnapshotBytes` (2 MiB)
 
 A file made from Stroom data (an attached table, a document's content, a tab's snapshot) remembers the document it came from, and is checked against the user's permissions each time it is used:
 
-* a file from a data source needs _Use_ on it;
-* a file from any other document needs _View_ on it.
+* A file from a data source needs _Use_ on it.
+* A file from any other document needs _View_ on it.
 
 If the user no longer has the permission, or the document has been deleted, the file is refused.
 It isn't deleted, so it can be used again if the permission is given back.

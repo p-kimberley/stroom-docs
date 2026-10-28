@@ -16,9 +16,9 @@ It uses MCP's _Streamable HTTP_ transport.
 
 Before you start, check that:
 
-* the endpoint is turned on (`stroom.ai.mcpEndpoint.enabled`, on by default);
-* you have the _Use MCP Tools_ application permission;
-* an [MCP Tool Policy]({{< relref "tool-policies" >}}) grants you the tools you need.
+* The endpoint is turned on (`stroom.ai.mcpEndpoint.enabled`, on by default).
+* You have the _Use MCP Tools_ application permission.
+* An [MCP Tool Policy]({{< relref "tool-policies" >}}) grants you the tools you need.
 
 
 ## Signing In
@@ -91,9 +91,9 @@ claude mcp add --transport http stroom https://stroom.example.com/mcp \
 
 When a client connects, Stroom tells it how its tools work (instructions sent with the connection), and offers:
 
-* **Tools**: those your tool policies grant you.
+* **Tools**: Those your tool policies grant you.
   If an administrator changes a policy while you are connected, the client is told (if its session is on the node the change was saved on; otherwise the change shows the next time it lists its tools), and lists the tools again.
-* **Resources**: the working guides (`stroom://guide/<name>`, with an index at `stroom://guides`) and the field convention profiles (`stroom://conventions/<name>`) the tools refer to.
+* **Resources**: The working guides (`stroom://guide/<name>`, with an index at `stroom://guides`) and the field convention profiles (`stroom://conventions/<name>`) the tools refer to.
 
 
 ### Uploading Samples
@@ -113,8 +113,8 @@ The workspace belongs to the session: it is deleted when the session ends, or af
 
 ## Troubleshooting
 
-* **`403`**: you don't have the _Use MCP Tools_ permission.
-* **`404`** for `/mcp`: the endpoint is turned off.
+* **`403`**: You don't have the _Use MCP Tools_ permission.
+* **`404`** for `/mcp`: The endpoint is turned off.
   A `404` for a request in a session means that session has ended (or is on another node); the client starts a new one.
-* **A tool you expect isn't listed**: no tool policy grants its category to you, or grants only read-only access and the tool changes things.
-* **A call says it needs approval**: it changes something, so you are asked first (see [Agent Tools]({{< relref "_index.md#how-the-tools-are-governed" >}})).
+* **A tool you expect isn't listed**: No tool policy grants its category to you, or grants only read-only access and the tool changes things.
+* **A call says it needs approval**: It changes something, so you are asked first (see [Agent Tools]({{< relref "_index.md#how-the-tools-are-governed" >}})).

@@ -33,7 +33,7 @@ The screen has four panels:
   A column is blank for a tool with no calls of that kind, so a tool that only reads has nothing under **Write**.
   A category the policy doesn't grant is greyed out, with a cross for each of its tools.
   Typing in the tool search shows only the tools whose names match, highlighted, in their categories.
-* **Assigned members**: the users and groups the selected policy covers, to add {{< stroom-icon "add.svg" "Add User Or Group" >}} and remove {{< stroom-icon "delete.svg" "Remove User Or Group" >}}.
+* **Assigned members**: The users and groups the selected policy covers, to add {{< stroom-icon "add.svg" "Add User Or Group" >}} and remove {{< stroom-icon "delete.svg" "Remove User Or Group" >}}.
   A group covers everyone in it.
   A policy for all users, such as _Default read-only tool policy_, shows **Everyone**, which can't be removed.
   Changes here are saved at once.
@@ -45,9 +45,9 @@ The same effective access is shown on the **MCP Tools** tab of a user's or group
 
 The policy dialog sets:
 
-* **Enabled**: a disabled policy is kept, but grants nothing.
+* **Enabled**: A disabled policy is kept, but grants nothing.
 * **Name** and **Description**.
-* **Categories**: a row for each category, with a tick box to grant it and its access:
+* **Categories**: A row for each category, with a tick box to grant it and its access:
   _Read-only_ (only the tools, and the calls, that cannot change anything) or _Read and write_.
   A newly ticked category starts at _Read and write_, since the default policy already grants everyone read-only access.
 

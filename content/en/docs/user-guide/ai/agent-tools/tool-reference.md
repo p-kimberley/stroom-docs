@@ -174,8 +174,8 @@ Tool | What it does | Changes
 
 These tools work on the chat itself, or offer buttons in it, so the MCP endpoint doesn't offer them:
 
-* `current_results`: snapshots the results of the attached query or dashboard.
-* `memory`, `task_list`, `read_turn` and `search_history`: the chat's memory, task list and history.
+* `current_results`: Snapshots the results of the attached query or dashboard.
+* `memory`, `task_list`, `read_turn` and `search_history`: The chat's memory, task list and history.
 * `propose_query`, `propose_query_change`, `propose_dashboard`, `propose_dashboard_change`, `propose_documentation_change`, `propose_code_change` and `propose_visualisation`: proposals the user applies with the chat's buttons.
 
 

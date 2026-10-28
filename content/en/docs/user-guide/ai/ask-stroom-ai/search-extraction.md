@@ -26,10 +26,10 @@ See [Search Extraction]({{< relref "docs/user-guide/search/search-extraction" >}
 1. **Trying it.**
    The agent tries the extraction on the table's own events, by stepping them through it, without saving anything.
    It shows you a table of the values extracted from each event, and anything to check, such as:
-   * a field the data source already has (its extracted value would replace the indexed one in the table, while queries still filter on the indexed one);
-   * a field found in only a few events;
-   * values that don't fit the field's type;
-   * values that differ from those the table shows now.
+   * A field the data source already has (its extracted value would replace the indexed one in the table, while queries still filter on the indexed one)
+   * A field found in only a few events
+   * Values that don't fit the field's type
+   * Values that differ from those the table shows now
 1. **Agreeing the fields.**
    You agree the fields with the agent, which may try again with changes.
 1. **Making it.**

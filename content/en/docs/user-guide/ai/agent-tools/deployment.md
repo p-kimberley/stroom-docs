@@ -53,7 +53,7 @@ Keep each client on one node by its address (the client's first request, which s
 
 ### Nginx
 
-```nginx
+```text
 upstream stroom_mcp {
     ip_hash;
     server stroom-node-1:8080;

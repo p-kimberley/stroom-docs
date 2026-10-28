@@ -44,8 +44,8 @@ A change to the chat's memory never asks, as it stays in the chat.
 
 A change to the user's memory lasts, and reaches every later chat, so the user is asked to approve it on an approval card when:
 
-* the chat has read untrusted content, which could have told the model to remember something (see [Trust and untrusted content]({{< relref "trust" >}})); or
-* the run is unattended.
+* The chat has read untrusted content, which could have told the model to remember something (see [Trust and untrusted content]({{< relref "trust" >}})).
+* The run is unattended.
 
 Until it is approved, the change isn't saved, and the model is told so.
 An approval request expires after 24 hours.

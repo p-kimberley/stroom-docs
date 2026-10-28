@@ -21,9 +21,9 @@ Each tool's call still runs as the user, with their permissions, whatever the mo
 
 A chat has read untrusted content once it has:
 
-* an attached tab, document or table, or dashboard or query data, in it;
-* the result of any tool that reads Stroom data, which is nearly all of Stroom's tools (as streams, events, documents and their names can be written by others), and of every tool of another MCP server;
-* a workspace file put into an MCP tool's arguments.
+* An attached tab, document or table, or dashboard or query data, in it
+* The result of any tool that reads Stroom data, which is nearly all of Stroom's tools (as streams, events, documents and their names can be written by others), and of every tool of another MCP server
+* A workspace file put into an MCP tool's arguments
 
 Results of the few tools that return only Stroom's own fixed text, what the model gave them, or the user's own answers (e.g. the time, the task list, `ask_user`, `memory`) don't count.
 A stored result whose tool can't be told (one since removed), and a chat whose run isn't on this node (as nothing is known of what it read), count as untrusted.

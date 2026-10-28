@@ -26,10 +26,10 @@ The agent never creates the dashboard itself: nothing is saved until you click i
    If more than one data source could hold what you asked for, it lists them for you to choose from, judging each by its documentation, not just its name.
    It reads the chosen data source's fields, to write the query with fields that exist.
 1. **The agent asks you, in one card**, only what your request didn't already say:
-   * the kind of dashboard, [classic or StroomQL](#classic-or-stroomql);
-   * which fields the table should show, offered as sets of fields from the data source;
-   * whether you want a data preview of the selected row's event;
-   * which data source, if more than one fits.
+   * The kind of dashboard, [classic or StroomQL](#classic-or-stroomql)
+   * Which fields the table should show, offered as sets of fields from the data source
+   * Whether you want a data preview of the selected row's event
+   * Which data source, if more than one fits
 1. **The agent writes and checks the query** in StroomQL, whichever kind you chose: a `where` clause for what to find, and a `select` clause for the table's columns, with any grouping, sorting and limit.
    The query is validated against the data source before it is offered, and a dashboard Stroom can't build from it is refused, with why (e.g. a query with no `select` clause, which would give a table with no columns).
 1. **The agent offers a _Create dashboard…_ button**, with a sentence saying what the dashboard shows and what it holds (e.g. _"A classic query and a table of 3 columns (EventTime, User, Action), with a data preview"_).

@@ -103,9 +103,9 @@ Give the agent your environment's own rules in {{< stroom-icon "document/Documen
 An `AGENTS` document in a folder applies to everything in that folder and below it, e.g. `/Feeds/AGENTS` for every feed.
 The agent reads those that apply to the folders, feeds and documents it works on, most general first, as the user (so only those they can view), e.g.:
 
-* how XSLT is written, and how fields are mapped;
-* how feeds, pipelines and other documents are named;
-* folders that searches should leave out.
+* How XSLT is written, and how fields are mapped
+* How feeds, pipelines and other documents are named
+* Folders that searches should leave out
 
 Each read is recorded in the audit log.
 

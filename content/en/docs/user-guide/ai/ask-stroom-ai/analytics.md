@@ -38,9 +38,9 @@ Each answer says what it covers, e.g. the rows of the snapshot it was worked out
 
 A table gets to the chat in one of these ways:
 
-* a table's or a chart's {{< stroom-icon "ai.svg" "Ask Stroom AI" >}} _Ask Stroom AI_ button, which attaches the table's rows (for a chart, the rows it draws);
-* attaching a dashboard or query tab, after which the agent takes a snapshot of the results it shows when it needs them;
-* the agent's own StroomQL queries, whose results it saves as tables.
+* A table's or a chart's {{< stroom-icon "ai.svg" "Ask Stroom AI" >}} _Ask Stroom AI_ button, which attaches the table's rows (for a chart, the rows it draws).
+* Attaching a dashboard or query tab, after which the agent takes a snapshot of the results it shows when it needs them.
+* The agent's own StroomQL queries, whose results it saves as tables.
 
 An attached table is downloaded into the chat's workspace, up to 50,000 rows by default.
 The model isn't given the rows themselves, but the table's profile: its row and column counts, and for each column its type, how many values are empty, roughly how many distinct values it has, its smallest and largest values and its most common values, with a few sample rows.
@@ -52,8 +52,8 @@ From that it decides what to ask of the data.
 A snapshot of a dashboard's or query's results is taken once, and reused for later questions.
 The agent tells you before it gives figures from a snapshot that is:
 
-* **stale**: the tab's query, expression, parameters or time range have changed since it was taken; or
-* **incomplete**: the search hadn't finished, the table's row limit cut it short, or it holds fewer rows than asked for while more exist.
+* **Stale**: The tab's query, expression, parameters or time range have changed since it was taken.
+* **Incomplete**: The search hadn't finished, the table's row limit cut it short, or it holds fewer rows than asked for while more exist.
 
 It then offers to run the search again, which can be slow, and does so only if you say yes, for that question.
 If you say no, it answers from the old snapshot, saying which query it is from.
@@ -88,8 +88,8 @@ If it isn't clear which you want, the agent asks.
 
 For free text, such as log messages, the agent can:
 
-* count the text as patterns, with numbers, IP addresses, dates and IDs masked, so that _"User 1234 logged in from 10.1.2.3"_ and _"User 5678 logged in from 10.4.5.6"_ count as one pattern;
-* summarise a column, which reduces it to its distinct patterns with their counts and, only if there are still too many, has the model summarise them in batches, looking for what you ask about, if anything (e.g. _"anything about certificates"_).
+* Count the text as patterns, with numbers, IP addresses, dates and IDs masked, so that _"User 1234 logged in from 10.1.2.3"_ and _"User 5678 logged in from 10.4.5.6"_ count as one pattern.
+* Summarise a column, which reduces it to its distinct patterns with their counts and, only if there are still too many, has the model summarise them in batches, looking for what you ask about, if anything (e.g. _"anything about certificates"_).
 
 
 ## The Events Behind the Rows
@@ -111,13 +111,13 @@ The agent can also search an index directly, as a dashboard would, for an event 
 
 Once the agent has found something, it can make it part of the dashboard or a query, proposed as a change for you to apply (_Apply to dashboard_), unsaved, for you to check and save:
 
-* **Columns**: a column worked out with an expression (tried on the snapshot first), e.g. a domain taken from an email address, or a decoded status.
-* **Grouping, sorting and filtering**: e.g. group by the new column and sort by its count.
-* **Highlighting**: a conditional formatting rule that colours, emboldens or hides rows, e.g. _"Highlight rows where the status is FAILED in red"_.
-* **Tables by category**: a table for each category in the rows (e.g. a tab per event type), each with the columns that suit it and a filter.
-* **Charts**: see [Creating charts]({{< relref "charts" >}}); a chart that needs a table change, such as a count per hour, is proposed with it, in one button.
-* **A data preview**: a Text widget showing the event of the selected row (on a grouped table, its detail rows are turned on so that an event can be selected).
-* **A query or a dashboard**: a new StroomQL Query document, or a change to the attached query, or a new classic or StroomQL dashboard (see [Building dashboards]({{< relref "dashboards" >}})).
+* **Columns**: A column worked out with an expression (tried on the snapshot first), e.g. a domain taken from an email address, or a decoded status.
+* **Grouping, sorting and filtering**: For example, group by the new column and sort by its count.
+* **Highlighting**: A conditional formatting rule that colours, emboldens or hides rows, e.g. _"Highlight rows where the status is FAILED in red"_.
+* **Tables by category**: A table for each category in the rows (e.g. a tab per event type), each with the columns that suit it and a filter.
+* **Charts**: See [Creating charts]({{< relref "charts" >}}); a chart that needs a table change, such as a count per hour, is proposed with it, in one button.
+* **A data preview**: A Text widget showing the event of the selected row (on a grouped table, its detail rows are turned on so that an event can be selected).
+* **A query or a dashboard**: A new StroomQL Query document, or a change to the attached query, or a new classic or StroomQL dashboard (see [Building dashboards]({{< relref "dashboards" >}})).
 
 
 ## Analysing a Chart
@@ -125,10 +125,10 @@ Once the agent has found something, it can make it part of the dashboard or a qu
 Each chart Stroom AI generated sends Stroom a render report, which the agent reads: what it drew, any rows left out and why, and any error.
 It also says what you are looking at:
 
-* the part zoomed in on, e.g. a period of time;
-* what is selected, as the chart labels it;
-* the series hidden from the legend;
-* the interval an _Auto Interval_ chart groups by.
+* The part zoomed in on, e.g. a period of time
+* What is selected, as the chart labels it
+* The series hidden from the legend
+* The interval an _Auto Interval_ chart groups by
 
 So you can ask _"What's this spike?"_ or _"Explain what I've selected"_, and the agent reads the rows behind it from the chart's table.
 The chart works out the figures below itself, and the agent quotes them from the report rather than reading them off the picture.
@@ -154,8 +154,8 @@ Line, bar (of dates) and scatter charts can draw a trend line: a straight-line f
 A trend needs an x it can follow (dates or numbers, not text, and bars in their own order, not sorted by value).
 For each series (or the total, for a stacked chart), the report gives:
 
-* the **direction**: rising, falling or flat (flat meaning it changes by less than 5% of the series' average over the time shown);
-* the **slope**, per a unit that suits the time shown, e.g. _+12/day_;
+* The **direction**: Rising, falling or flat (flat meaning it changes by less than 5% of the series' average over the time shown).
+* The **slope**, per a unit that suits the time shown, e.g. _+12/day_.
 * **R²**, how well a straight line fits, from 0 to 1.
   Below about 0.3 the trend is weak, and drawn fainter; the agent then says the values vary too much to call it rising or falling.
 
@@ -168,9 +168,9 @@ A network graph can colour its clusters: groups of nodes more linked to each oth
 The links between clusters are greyed.
 The report gives:
 
-* how many clusters there are, and their **modularity**, how clear-cut they are (below about 0.3 they are weak, above about 0.5 clear);
-* the largest clusters, each named after its most connected member (e.g. `mchen +11`), with its size;
-* the **bridges**: the nodes linked to the most other clusters, often the people or hosts worth a closer look.
+* How many clusters there are, and their **modularity**, how clear-cut they are (below about 0.3 they are weak, above about 0.5 clear).
+* The largest clusters, each named after its most connected member (e.g. `mchen +11`), with its size.
+* The **bridges**: The nodes linked to the most other clusters, often the people or hosts worth a closer look.
 
 Mapping a known grouping, such as each person's department, to the graph's groups also gives the group most of each cluster is in.
 A cluster mixing groups, or a group split across clusters, is often the finding.
@@ -180,9 +180,9 @@ A cluster mixing groups, or a group split across clusters, is often the finding.
 
 Ask which charts suit a table, and the agent looks at the types of its columns (in a snapshot of the rows) and its grouping, and gives:
 
-* the kinds it can make now, with the columns each would draw;
-* the kinds it could make after a change to the table, naming the change (e.g. a time rounded to the hour, formatted as Date Time and grouped, for a line chart);
-* the kinds that don't suit it.
+* The kinds it can make now, with the columns each would draw
+* The kinds it could make after a change to the table, naming the change (e.g. a time rounded to the hour, formatted as Date Time and grouped, for a line chart)
+* The kinds that don't suit it
 
 A chart you describe in words is mapped to a kind, and the agent says which reading it chose, e.g. _"a calendar-like heatmap of activity"_ is either a calendar of counts by day, or a heatmap of weekday by hour of day.
 

@@ -134,7 +134,7 @@ Secrets are masked.
 
 ## Memory and the Chat
 
-* `/remember The ACME feeds are owned by the network team.`: adds a fact to your memory, loaded into every chat.
+* `/remember The ACME feeds are owned by the network team.`: Adds a fact to your memory, loaded into every chat.
 * _"Remember that our firewall events go to the FW-EVENTS index."_
 * `/compact` when a long chat is running out of context, or `/new` to start afresh.
 

@@ -12,7 +12,7 @@ description: >
 
 Setting up Ask Stroom AI takes these steps, most of which need the _Manage Properties_ application permission:
 
-1. [Set up a model](#setting-up-a-model): an {{< stroom-icon "document/OpenAI.svg" >}} **OpenAI Model** document.
+1. [Set up a model](#setting-up-a-model): An {{< stroom-icon "document/OpenAI.svg" >}} **OpenAI Model** document.
 1. [Set the default chat settings](#default-chat-settings), the default model among them, for everyone.
 1. Check the [tool policies](#tool-policies), which say which of Stroom's tools each user is given.
 1. Optionally, install a [charting library](#charting-libraries), connect [MCP tool servers](#mcp-tool-servers), and adjust the [configuration](#configuration).
@@ -158,7 +158,7 @@ It needs Edit permission on the model.
 
 The authentication modes are:
 
-* _OAuth2 passthrough_: each user is signed in to the server, so the server acts as them.
+* _OAuth2 passthrough_: Each user is signed in to the server, so the server acts as them.
   * With an external identity provider, the user's own token is passed on; its audience must include both Stroom and the server.
   * With Stroom's internal identity provider, Stroom issues each user a short-lived token (five minutes) for the server's _Token audience_, sent only to a trusted server, over HTTPS or on the same machine.
     Configure the server with Stroom's issuer and JWKS URL, both given by `<stroom>/api/oauth2/v1/.well-known/openid-configuration`, and the audience.
@@ -205,11 +205,11 @@ The _AI Chat Retention_ job (hourly) removes old chats and workspace files, and 
 
 ## Troubleshooting
 
-* **"The tools of MCP tool server … are unavailable"**: the server couldn't be reached, or its authentication isn't set up (e.g. _OAuth2 passthrough_ with the internal identity provider needs a token audience, a trusted server and HTTPS).
+* **"The tools of MCP tool server … are unavailable"**: The server couldn't be reached, or its authentication isn't set up (e.g. _OAuth2 passthrough_ with the internal identity provider needs a token audience, a trusted server and HTTPS).
   The chat still works with Stroom's own tools.
-* **"The AI model … cannot be found, and no default model is set"**: set a default model (see [Setting the Defaults](#setting-the-defaults)).
-* **"Interrupted because the Stroom node running it stopped"**: the node running the chat went away; _Resume_ carries on from the last question.
-* **_Test Model_ says the model isn't found**: the server doesn't serve the _Model ID_ as written; the alert's detail lists the models it does serve.
-* **Nothing streams**: some OpenAI-compatible servers don't stream; the answer then arrives whole.
-* **The context meter shows nothing, or chats are never compacted**: the model's _Maximum context window tokens_ is `0`.
-* **Users still see old settings after Set As Default**: they have saved their own settings; use **Reset Everyone to Defaults…**, or ask them to use **Restore From Defaults**.
+* **"The AI model … cannot be found, and no default model is set"**: Set a default model (see [Setting the Defaults](#setting-the-defaults)).
+* **"Interrupted because the Stroom node running it stopped"**: The node running the chat went away; _Resume_ carries on from the last question.
+* **_Test Model_ says the model isn't found**: The server doesn't serve the _Model ID_ as written; the alert's detail lists the models it does serve.
+* **Nothing streams**: Some OpenAI-compatible servers don't stream; the answer then arrives whole.
+* **The context meter shows nothing, or chats are never compacted**: The model's _Maximum context window tokens_ is `0`.
+* **Users still see old settings after Set As Default**: They have saved their own settings; use **Reset Everyone to Defaults…**, or ask them to use **Restore From Defaults**.

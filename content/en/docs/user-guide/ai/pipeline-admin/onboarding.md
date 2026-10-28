@@ -44,14 +44,14 @@ When the build is finished and checked, _promotion_ moves its documents to their
 Ask for it in plain words, e.g. _"Onboard the ACME firewall logs, samples are in stream 123"_, or attach a feed or folder and choose the onboarding question the chat offers.
 The agent then works through the plan with you, which you can follow in its task list:
 
-1. **Start**: the build is made, and the samples are profiled to tell their format and fields.
+1. **Start**: The build is made, and the samples are profiled to tell their format and fields.
    Samples can be text you give, streams already in Stroom, or files you upload; files are profiled once the feed is made and they have been uploaded to it.
-1. **The events pipeline**: a feed, the samples uploaded to it, a pipeline from one of your pipeline templates, and a translation XSLT generated from a field mapping the agent drafts and you agree.
+1. **The events pipeline**: A feed, the samples uploaded to it, a pipeline from one of your pipeline templates, and a translation XSLT generated from a field mapping the agent drafts and you agree.
    Every record of the samples is stepped through it, its Events are checked against the event-logging schema, processing is started, and the source's notes and documentation are written, with its field mappings.
    The agent asks about indexing (the backend, cluster, index template and field naming) only once the build has Events.
-1. **Indexing**: an index plan drafted from the Events (following a field convention such as ECS where you want one), the index document, and an indexing pipeline, verified with test searches, and documented.
-1. **CEF output** (if you want it): a CEF mapping of the Events, a pipeline for it, stepped and documented.
-1. **Promotion**: the build's layout is shown as a tree for you to confirm, then its new documents are moved into place, working copies of documents already in production are written back over them (after a backup), and the build's processor filters are handed over disabled, for you to enable.
+1. **Indexing**: An index plan drafted from the Events (following a field convention such as ECS where you want one), the index document, and an indexing pipeline, verified with test searches, and documented.
+1. **CEF output** (if you want it): A CEF mapping of the Events, a pipeline for it, stepped and documented.
+1. **Promotion**: The build's layout is shown as a tree for you to confirm, then its new documents are moved into place, working copies of documents already in production are written back over them (after a backup), and the build's processor filters are handed over disabled, for you to enable.
 
 
 ### Pipeline Templates

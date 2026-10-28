@@ -34,11 +34,3 @@ They are the same tools that the [Ask Stroom AI]({{< relref "../ask-stroom-ai" >
 
 * **Audit.**
   Every call, whether made, refused or not approved, is recorded in Stroom's audit log, with the client that made it.
-
-
-## In This Section
-
-* [Connecting an MCP client]({{< relref "connecting-clients" >}}): the endpoint, signing in, and setting up a client.
-* [MCP Tool Policies]({{< relref "tool-policies" >}}): granting tools to users and groups.
-* [MCP Tool Reference]({{< relref "tool-reference" >}}): every tool the endpoint offers, by category, and the resources it serves.
-* [Deploying the MCP endpoint]({{< relref "deployment" >}}): configuration, and running it behind a load balancer.

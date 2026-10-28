@@ -39,7 +39,7 @@ Each run is recorded in the database with its status, its node, the tokens it us
 
 Each call to the model is built afresh, from what the chat has stored, in this order:
 
-1. **The system message**: the system prompt (`stroom.askStroomAi.chatSystemPrompt`), guidance on the tools and on the kind of tab attached (for a model with tools), the mode's guidance (for _Ask_ and _Plan_), and then the user's and the chat's [memory]({{< relref "memory" >}}).
+1. **The system message**: The system prompt (`stroom.askStroomAi.chatSystemPrompt`), guidance on the tools and on the kind of tab attached (for a model with tools), the mode's guidance (for _Ask_ and _Plan_), and then the user's and the chat's [memory]({{< relref "memory" >}}).
 1. **A summary of compacted turns**, if the chat has been compacted (see below).
 1. **Attached tables and documents**, which are always kept.
    A model with tools is given each table's profile and where it is in the workspace; a model without tools is given the rows.
@@ -47,7 +47,7 @@ Each call to the model is built afresh, from what the chat has stored, in this o
    The tool calls of earlier turns aren't sent again: only a log of them, a line each, with the start of their arguments and results.
    The agent can read an earlier turn in full with its `read_turn` tool.
 1. **The question**, with a note on the attached tab's snapshot.
-1. **The current run's steps so far**: the model's tool calls and their results.
+1. **The current run's steps so far**: The model's tool calls and their results.
 
 A large tool result isn't sent whole: it is saved to the [workspace]({{< relref "workspaces#large-results" >}}), and the model is sent a preview and where to find it.
 

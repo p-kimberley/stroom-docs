@@ -22,8 +22,8 @@ Attach the dashboard or query tab to the chat first (see [Using the chat]({{< re
 
 An administrator must install a charting library, as a {{< stroom-icon "document/Script.svg" >}} Script document:
 
-* **ECharts**: a Script document holding `echarts.min.js` from an {{< external-link "Apache ECharts" "https://echarts.apache.org" >}} release, version 6 or later.
-* **D3**: a Script document holding a D3 build, version 3 or later (e.g. `d3.min.js` from D3 7).
+* **ECharts**: A Script document holding `echarts.min.js` from an {{< external-link "Apache ECharts" "https://echarts.apache.org" >}} release, version 6 or later.
+* **D3**: A Script document holding a D3 build, version 3 or later (e.g. `d3.min.js` from D3 7).
   The visualisations content pack includes D3 3.
 
 Stroom recognises a library by its content, so upgrading one is a matter of putting a newer release's build in its Script document.
@@ -90,7 +90,7 @@ Each chart has a toolbar under its pane's title with, where they apply:
   Bar, line and scatter charts, and network graphs, also zoom with the mouse wheel and pan by dragging.
 * {{< stroom-icon "pause.svg" "Pause the layout" >}} _Pause the layout_, while a network graph settles.
 * {{< stroom-icon "eye.svg" "Show all series" >}} _Show all series_, once some have been hidden from the legend.
-* {{< stroom-icon "download.svg" "Download" >}} _Download_: the chart as a PNG image, or the data it draws as CSV (for users with the _Download Search Results_ permission).
+* {{< stroom-icon "download.svg" "Download" >}} _Download_: The chart as a PNG image, or the data it draws as CSV (for users with the _Download Search Results_ permission).
 * {{< stroom-icon "ai.svg" "Ask Stroom AI about this chart's data" >}} _Ask Stroom AI_: attaches the data the chart draws to the chat, with suggested questions about the chart.
 * _Interval_, for a chart with _Auto Interval_ on: _Auto_, or a fixed interval.
 * What is selected, and the {{< stroom-icon "refresh.svg" "Refresh" >}} refresh button.
@@ -110,8 +110,8 @@ While something is selected, the chart shows a _Selected: …_ bar with a button
 A selection filter makes other parts of the dashboard follow the selection.
 It filters either:
 
-* **the query**, which runs again, so every table it feeds (and the chart itself) narrows to the selection, a drill-down; or
-* **one table**, e.g. listing the events behind a clicked slice, while the chart stays whole.
+* **The query**, which runs again, so every table it feeds (and the chart itself) narrows to the selection, a drill-down.
+* **One table**, e.g. listing the events behind a clicked slice, while the chart stays whole.
 
 The agent asks which you want when it makes a chart, and adds the filter with it.
 You can also ask for a filter on a chart already on the dashboard, or to remove one.

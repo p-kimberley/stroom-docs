@@ -20,11 +20,11 @@ Where it docks (left, right, top or bottom), or whether it opens as a tab or a d
 
 The panel has, from top to bottom:
 
-* the chat's title, which opens the list of your chats, with {{< stroom-icon "add.svg" "Start a new chat" >}} _New chat_, {{< stroom-icon "explore.svg" "Chat history navigation" >}} _Chat history navigation_ and the {{< stroom-icon "ellipses-vertical.svg" "More" >}} _More_ menu;
-* the conversation;
-* the task list, while the agent works through a task with several steps;
-* the attachments, above the input box;
-* the input box, with the mode, {{< stroom-icon "shield.svg" "Auto-approve" >}} _Auto-approve_, the model, the context meter, and the {{< stroom-icon "play.svg" "Send message" >}} _Run_ and {{< stroom-icon "stop.svg" "Stop" >}} _Stop_ buttons.
+* The chat's title, which opens the list of your chats, with {{< stroom-icon "add.svg" "Start a new chat" >}} _New chat_, {{< stroom-icon "explore.svg" "Chat history navigation" >}} _Chat history navigation_ and the {{< stroom-icon "ellipses-vertical.svg" "More" >}} _More_ menu
+* The conversation
+* The task list, while the agent works through a task with several steps
+* The attachments, above the input box
+* The input box, with the mode, {{< stroom-icon "shield.svg" "Auto-approve" >}} _Auto-approve_, the model, the context meter, and the {{< stroom-icon "play.svg" "Send message" >}} _Run_ and {{< stroom-icon "stop.svg" "Stop" >}} _Stop_ buttons
 
 
 ## Chats
@@ -35,12 +35,12 @@ Signing out of Stroom, or your session expiring, stops your chats' work.
 
 * **New chat**: {{< stroom-icon "add.svg" "Start a new chat" >}} _New chat_, or `/new [question]`.
   A chat that is still empty is new already.
-* **Your chats**: click the chat's title to list your chats, most recently active first, and click one to open it.
+* **Your chats**: Click the chat's title to list your chats, most recently active first, and click one to open it.
   Type in _Search chats_ to find chats by their titles and your questions in them; Escape clears the search.
   {{< stroom-icon "delete.svg" "Delete chat" >}} deletes a chat.
-* **Titles**: a chat is named after your first question, then retitled by the model as the conversation goes on.
+* **Titles**: A chat is named after your first question, then retitled by the model as the conversation goes on.
   Once you rename it ({{< stroom-icon "edit.svg" "Rename Chat" >}} _Rename Chat_ in the {{< stroom-icon "ellipses-vertical.svg" "More" >}} menu), it keeps your name.
-* **Status**: each chat's icon in the list says how it is:
+* **Status**: Each chat's icon in the list says how it is:
 
   Icon | Meaning
   -- | --
@@ -91,24 +91,24 @@ To allow one tool rather than all of them, choose to allow it for the rest of th
 
 ## Asking, Stopping and Steering
 
-* **Asking**: type in the box and press Enter (Shift+Enter for a new line), or click {{< stroom-icon "play.svg" "Send message" >}} _Run_.
+* **Asking**: Type in the box and press Enter (Shift+Enter for a new line), or click {{< stroom-icon "play.svg" "Send message" >}} _Run_.
   Type `/` to list the [commands]({{< relref "using-the-chat#commands" >}}).
-* **Following the work**: everything the agent does is shown as it happens: its reasoning, what it writes along the way, each tool call (click one to see its arguments and result), and its answer.
+* **Following the work**: Everything the agent does is shown as it happens: its reasoning, what it writes along the way, each tool call (click one to see its arguments and result), and its answer.
   A _Working…_ line at the bottom says what it is doing now.
   If you scroll up, the chat stops following; _Scroll to the latest message_ follows it again.
 * **Stopping**: {{< stroom-icon "stop.svg" "Stop" >}} _Stop_ stops everything the chat is doing, including tool calls and downloads, and any form or question waiting for you.
   A stopped question can be resumed with _Resume_.
   If the agent stops short (at its step limit, or having only said what it would do next), say _"carry on"_: it picks up from the steps it took, rather than starting again.
-* **Steering**: send a message while the agent works, e.g. _"Only look at the last day"_.
+* **Steering**: Send a message while the agent works, e.g. _"Only look at the last day"_.
   It is shown queued (_Waiting for the current step to finish_), and the agent reads it before its next step.
   {{< stroom-icon "fast-forward.svg" "Send now" >}} _Send now_ on the queued message has the agent stop waiting for another server's tool and read it at once.
-* **Answering instead**: a message sent while the chat waits for you to fill in a form, or to approve a tool call, answers it: the form is put aside, or the calls are refused with your message as the reason, and the agent carries on.
+* **Answering instead**: A message sent while the chat waits for you to fill in a form, or to approve a tool call, answers it: the form is put aside, or the calls are refused with your message as the reason, and the agent carries on.
 
 Each message has buttons:
 
-* your questions: {{< stroom-icon "edit.svg" "Edit" >}} _Edit_ and ask again, and {{< stroom-icon "refresh.svg" "Ask again" >}} _Ask again_ (both send the attached tab as it is now);
-* answers: {{< stroom-icon "copy.svg" "Copy as Markdown" >}} _Copy as Markdown_ and _Copy as text_;
-* {{< stroom-icon "delete.svg" "Delete message" >}} _Delete message_.
+* Your questions: {{< stroom-icon "edit.svg" "Edit" >}} _Edit_ and ask again, and {{< stroom-icon "refresh.svg" "Ask again" >}} _Ask again_ (both send the attached tab as it is now)
+* Answers: {{< stroom-icon "copy.svg" "Copy as Markdown" >}} _Copy as Markdown_ and _Copy as text_
+* {{< stroom-icon "delete.svg" "Delete message" >}} _Delete message_
 
 Code blocks in answers have a copy button, inline code copies when clicked, and each heading in an answer can be collapsed.
 
@@ -118,11 +118,11 @@ Code blocks in answers have a copy button, inline code copies when clicked, and 
 The agent only sees what you attach: nothing is shared just because a tab is open.
 Attachments are shown as chips above the input box.
 
-* **The tab you are on**: click the dashed {{< stroom-icon "add.svg" "Attach" >}} chip naming it.
+* **The tab you are on**: Click the dashed {{< stroom-icon "add.svg" "Attach" >}} chip naming it.
   It stays attached (shown as _Tab: name_, with _(unsaved)_ while it has unsaved changes) until you remove it or close the tab, and each question sends it as you see it then.
   One tab is attached at a time.
-* **Documents**: right-click documents in the Explorer and select {{< stroom-icon "ai.svg" "Attach to chat" >}} **Attach to chat**.
-* **Tables and charts**: click {{< stroom-icon "ai.svg" "Ask Stroom AI" >}} _Ask Stroom AI_ on a dashboard table, a query's results or a chart, which attaches its rows.
+* **Documents**: Right-click documents in the Explorer and select {{< stroom-icon "ai.svg" "Attach to chat" >}} **Attach to chat**.
+* **Tables and charts**: Click {{< stroom-icon "ai.svg" "Ask Stroom AI" >}} _Ask Stroom AI_ on a dashboard table, a query's results or a chart, which attaches its rows.
 
 Documents and tables go with your next question; the tab stays for every question.
 Remove an attachment with {{< stroom-icon "close.svg" "Remove" >}} on its chip.
@@ -151,7 +151,7 @@ Click its heading to fold it away.
 {{< stroom-icon "explore.svg" "Chat history navigation" >}} _Chat history navigation_ shows the chat as a flowchart of what you did (your questions, messages, answers and approvals), joined by lines saying which tools the agent called in between and how long it took.
 Click a step to go to it in the conversation.
 
-* {{< stroom-icon "search.svg" "Search the chat history" >}} searches the steps; Enter goes to the next match and Shift+Enter the one before.
+* {{< stroom-icon "search.svg" "Search the chat history" >}} Searches the steps; Enter goes to the next match and Shift+Enter the one before.
 * {{< stroom-icon "zoom-in.svg" "Zoom in" >}}, {{< stroom-icon "zoom-out.svg" "Zoom out" >}} (or Ctrl and the mouse wheel) and {{< stroom-icon "fit-width.svg" "Fit to the panel's width" >}} zoom it.
 
 
