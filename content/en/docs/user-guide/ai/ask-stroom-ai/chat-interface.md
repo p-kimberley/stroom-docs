@@ -98,6 +98,7 @@ To allow one tool rather than all of them, choose to allow it for the rest of th
   If you scroll up, the chat stops following; _Scroll to the latest message_ follows it again.
 * **Stopping**: {{< stroom-icon "stop.svg" "Stop" >}} _Stop_ stops everything the chat is doing, including tool calls and downloads, and any form or question waiting for you.
   A stopped question can be resumed with _Resume_.
+  If the agent stops short (at its step limit, or having only said what it would do next), say _"carry on"_: it picks up from the steps it took, rather than starting again.
 * **Steering**: send a message while the agent works, e.g. _"Only look at the last day"_.
   It is shown queued (_Waiting for the current step to finish_), and the agent reads it before its next step.
   {{< stroom-icon "fast-forward.svg" "Send now" >}} _Send now_ on the queued message has the agent stop waiting for another server's tool and read it at once.

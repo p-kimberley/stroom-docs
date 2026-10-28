@@ -53,7 +53,8 @@ A model can also be given the tools of other MCP servers your administrator has 
 * [Using the chat]({{< relref "using-the-chat" >}}): approvals, questions and forms, steps for you, attaching tabs and tables, commands, memory.
 * [Prompt guide]({{< relref "prompt-guide" >}}): what you can ask, with examples, and how to get good answers.
 * [Pipeline Administration]({{< relref "../pipeline-admin" >}}): onboarding data sources and editing pipelines with the agent.
-* [Charts]({{< relref "charts" >}}): charting a dashboard table or a query, and filtering, reading and changing the charts.
+* [Building dashboards]({{< relref "dashboards" >}}): creating a classic or StroomQL dashboard from a request, and adding tables, columns, filters and highlighting to it.
+* [Creating charts]({{< relref "charts" >}}): charting a dashboard table or a query, and filtering, reading and changing the charts.
 * [Analysing tables and charts]({{< relref "analytics" >}}): questions about a table's rows, the events behind them, and the charts drawn from them.
 * [Adding fields from events]({{< relref "search-extraction" >}}): adding values held only in a table's events with a search extraction.
 * [Setting up Ask Stroom AI]({{< relref "setting-up" >}}): models, MCP tool servers and configuration, for administrators.

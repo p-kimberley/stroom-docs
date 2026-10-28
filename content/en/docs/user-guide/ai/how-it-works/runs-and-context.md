@@ -18,6 +18,9 @@ Each run is recorded in the database with its status, its node, the tokens it us
 * **Steps.**
   A run calls the model, carries out the tool calls the model asks for, gives it their results, and calls it again, until the model answers.
   A run makes at most `stroom.ai.maxToolIterations` (100) calls to the model for one question; the last is given no tools, so that it answers.
+  A reply that only says what the model will do next, with no tool call, isn't taken as its answer: it is shown as the model's interim words, and the model is told to make the call (at most twice in a row).
+* **Unfinished questions.**
+  When a question wasn't finished (the model ended on saying what it would do next, or reached the step limit), the next question (e.g. _"go on"_) is given that question's steps in full, with what the model said and found, and told to carry on from them rather than work it all out again.
 * **Run slots.**
   A user may have `stroom.ai.maxRunsPerUser` (3) runs working at once across the cluster, and a node `stroom.ai.maxRunsPerNode` (20).
   A run waiting for the user (an approval, a form or a question) doesn't count, and runs beyond the limits wait for a slot.

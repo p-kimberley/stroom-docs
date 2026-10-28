@@ -144,6 +144,7 @@ Tool | What it does | Changes
 `locate_event` | Traces a stream, or one event in it, back to the raw stream, record, pipeline and code it came from. | No
 `processing_status` | A pipeline's processor filters and their progress, and its processor tasks by status. | No
 `processor_tasks` | Processing failures and why, backlogs, and task lists and counts across the cluster. | No
+`explain_processing` | Why processing isn't happening (or is slow) for a pipeline, feed, stream or the whole cluster, checked link by link from the nodes and jobs to each processor filter, with a fix for each finding. | No
 `profile_sample` | Profiles raw data, to tell its format, fields and time stamps (nothing is saved). | No
 `survey_feed` | Samples a feed's streams over its lifetime and groups their records into kinds of event. | Build only (some calls)
 `set_shape_handling` | Records in the build that some kinds of event are left untranslated on purpose (or no longer are). | Yes, confirms

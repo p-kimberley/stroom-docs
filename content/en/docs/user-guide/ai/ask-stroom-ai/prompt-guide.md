@@ -76,6 +76,8 @@ The agent proposes changes rather than making them where it can: a change to a q
 * Tracing a stream back to its raw stream, record, pipeline and code: _"Where did stream 73145 come from?"_
 * _"Find the Raw Events streams of ACME-EVENTS received yesterday, by size."_
 * _"Is anything stuck?"_
+* _"Is processing healthy?"_
+* Checking processing link by link, from the nodes and jobs to each processor filter (see [Finding why processing fails or stalls]({{< relref "../pipeline-admin/editing-pipelines#finding-why-processing-fails-or-stalls" >}})): _"Why isn't the ACME-EVENTS pipeline processing anything?"_
 
 
 ## Searching
@@ -84,21 +86,29 @@ The agent proposes changes rather than making them where it can: a change to a q
 * _"Write a StroomQL query for DNS lookups of domains no one looked up last month"_ (offered as a button to create the query)
 * _"Show me the events behind the top 5 rows."_
 * _"Which of these events have a `Proxy` element, and what's in it?"_
-* _"Build me a dashboard of web traffic by host, with a data preview"_ (the agent asks how to build it, then offers a button)
+* A new dashboard, classic or StroomQL, which the agent asks how to build and then offers as a button (see [Building dashboards]({{< relref "dashboards" >}})): _"Build me a dashboard of web traffic by host, with a data preview"_
 
 
 ## Dashboards, Tables and Charts
 
 With a dashboard or query attached:
 
+* _"Add a table of the top 10 source IPs, and refresh the dashboard every 10 minutes."_
+
 * _"Add a column with the user's domain, and group by it."_
 * _"Highlight rows where the status is FAILED in red."_
 * _"Add a tab for each event category."_
-* _"Chart events per hour as a line chart, with a trend line"_ (see [Charts]({{< relref "charts" >}}))
+* _"Chart events per hour as a line chart, with a trend line"_ (see [Creating charts]({{< relref "charts" >}}))
 * _"Show who messages whom as a network, and find the groups."_
 * _"What's this spike?"_ or _"Explain what I've selected"_ (on a chart)
 * _"Add each user's department to this table; it's in the events"_ (see [Adding fields from events]({{< relref "search-extraction" >}}))
-* Patterns in free text (see [Analysing tables and charts]({{< relref "analytics" >}})): _"What kinds of error message are in this table?"_
+* _"Which users logged in from more than three countries?"_
+* Figures worked out exactly, in code: _"What share of each host's requests failed this week?"_
+* Patterns in free text: _"What kinds of error message are in this table?"_
+* _"Which charts could I make from this table?"_ or _"What can I do with this network graph?"_
+* _"Make a gauge for each numeric column, in a grid."_
+
+See [Analysing tables and charts]({{< relref "analytics" >}}) for the analysis the agent can do, with more examples.
 
 
 ## Indexing and Elasticsearch

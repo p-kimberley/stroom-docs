@@ -76,8 +76,17 @@ The agent can also change a pipeline it made: its elements' properties, and the 
 * **Waiting for processing**: it waits until each input stream's processing has ended, then reports the Events (or Reference) and Error streams it wrote.
 
 
-## Finding Why Processing Fails
+## Finding Why Processing Fails or Stalls
 
+* **Why nothing is processing**: asked why a pipeline, feed or stream isn't processing (or is slow), or whether processing is healthy, the agent checks each link of the chain in turn:
+  * the cluster's nodes, and the jobs processing needs on them (Processor Task Creator, Data Processor, and the task reaper and heartbeat);
+  * each processor filter: whether it is enabled, its tracker (_Complete_, or _Error_, which Stroom never retries), its stream create time window, its feed dependencies and polling;
+  * its processor profile: the node group, the periods it applies in, and the threads each node gets now;
+  * where its tasks wait (locked streams, limits), and the higher-priority filters ahead of it in its profile.
+
+  Each link is reported as ok, blocking, slowing, or not checked (where you lack the permission to see it), with a fix for each finding.
+  It reads Stroom's state only, never its logs, and needs _Manage Processors_ (with _Manage Jobs_, _Manage Nodes_ and _View System Info_ for the jobs and nodes).
+  When waiting for processing finds nothing processed, the agent turns to this check.
 * **Across the cluster**: what is failing today and why, backlogs, queued and stuck tasks by node, and task lists, from processor tasks (this needs _Manage Processors_).
 * **Errors**: the errors in Error streams, grouped by severity, element and message, each triaged as blocking, for review, or benign, and the pipeline's own elements told from inherited ones.
   Your own [error triage rules]({{< relref "configuration#error-triage-rules" >}}) are applied first.
@@ -86,6 +95,8 @@ The agent can also change a pipeline it made: its elements' properties, and the 
 * **Coverage**: the kinds of event a feed holds that a generated translation doesn't match yet, from the records it logged as unmatched.
 
 > _"Which tasks for the ACME pipeline failed today, on which nodes, and why?"_
+
+> _"Why isn't the ACME-EVENTS pipeline processing anything?"_
 
 
 ## Documentation

@@ -1,6 +1,6 @@
 ---
-title: "Charts"
-linkTitle: "Charts"
+title: "Creating charts"
+linkTitle: "Creating charts"
 weight: 22
 date: 2026-10-27
 tags:
@@ -39,6 +39,7 @@ The agent can also wire one of the visualisations content pack's own D3 Visualis
 
 1. Ask for the chart.
    If you ask the agent to suggest one, it looks at the table's columns and the charts already on the dashboard, and offers two to four kinds that suit the data for you to choose from.
+   Ask _"Which charts could I make from this table?"_ for the kinds it can make now, those it could make after a change to the table, and those that don't suit it (see [Which Charts a Table Can Make]({{< relref "analytics#which-charts-a-table-can-make" >}})).
 1. The agent asks what it needs to know: the library, how clicks on the chart should filter the dashboard (see [Filtering by a Chart](#filtering-by-a-chart)), and anything unclear that changes the chart, such as the time bucket for a time axis.
 1. If the table lacks something the chart needs (e.g. a count to size bars by, or a time rounded to the hour), the agent includes the change to the table, or a new table, with the chart.
 1. The agent offers a _Create visualisation_ button.

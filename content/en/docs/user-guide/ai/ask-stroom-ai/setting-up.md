@@ -41,7 +41,9 @@ You can have several models, e.g. a large one for the chat and a small, fast one
 
 1. Optionally, _Set Http Client Config_ sets how Stroom connects to the server: timeouts, TLS, a proxy, and **Headers** sent with every request (e.g. `anthropic-version` for Anthropic's OpenAI-compatible endpoint).
    Don't put secrets in headers: the API key belongs in the credential.
-1. {{< stroom-icon "ok.svg" "Test Model" >}} _Test Model_ connects to the server with the settings as they are in the form, and checks that it has the model (this needs Use permission on the document).
+1. {{< stroom-icon "ok.svg" "Test Model" >}} _Test Model_ connects to the server with the settings as they are in the form, and checks that it serves the _Model ID_: it must be listed by the server's `/models`, or found when asked for by its id (`/models/<id>`), as gateways that route by pattern answer.
+   Found, the test shows that model's entry; not found, it says so, and its detail lists the models the server does serve.
+   Testing needs Edit permission on the model document, as only someone who could save the settings may make Stroom connect with them.
 1. Save the document, and [make it the default model](#default-chat-settings).
 
 For testing without a model, set the _Model ID_ to `__stub__`.
@@ -207,6 +209,7 @@ The _AI Chat Retention_ job (hourly) removes old chats and workspace files, and 
   The chat still works with Stroom's own tools.
 * **"The AI model … cannot be found, and no default model is set"**: set a default model (see [Setting the Defaults](#setting-the-defaults)).
 * **"Interrupted because the Stroom node running it stopped"**: the node running the chat went away; _Resume_ carries on from the last question.
+* **_Test Model_ says the model isn't found**: the server doesn't serve the _Model ID_ as written; the alert's detail lists the models it does serve.
 * **Nothing streams**: some OpenAI-compatible servers don't stream; the answer then arrives whole.
 * **The context meter shows nothing, or chats are never compacted**: the model's _Maximum context window tokens_ is `0`.
 * **Users still see old settings after Set As Default**: they have saved their own settings; use **Reset Everyone to Defaults…**, or ask them to use **Restore From Defaults**.

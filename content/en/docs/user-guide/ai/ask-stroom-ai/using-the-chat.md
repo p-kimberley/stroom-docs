@@ -42,7 +42,7 @@ The chat shows them as buttons in a _Steps for you_ card.
 The model can neither make nor click one: nothing happens until you do, and each click is checked again and done as you.
 
 The agent can also offer buttons that open Stroom's own New Query or New Dashboard dialog with what it wrote, or apply a proposed change to the query, dashboard or code you have open (_Apply to query_, _Apply to dashboard_, _Review and apply…_), unsaved, for you to check and save.
-On a dashboard, it can also offer to create a chart (_Create visualisation_, see [Charts]({{< relref "charts" >}})) or a search extraction (_Create extraction pipeline…_, see [Adding fields from events]({{< relref "search-extraction" >}})).
+On a dashboard, it can also offer to create a chart (_Create visualisation_, see [Creating charts]({{< relref "charts" >}})) or a search extraction (_Create extraction pipeline…_, see [Adding fields from events]({{< relref "search-extraction" >}})).
 
 
 ## Links in Answers
