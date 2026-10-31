@@ -35,8 +35,8 @@ A form is for a short question: what you are to review at length (an index templ
 A form from another MCP server with a message over 2,000 characters, more than 20 fields, or a schema over 16,000 characters isn't shown: the chat says it is a problem with that server, for an administrator to report.
 
 An XSLT the agent writes may not reach outside Stroom.
-If it newly calls `stroom:host-name` or `stroom:host-address` (which look up names on the network), saving or stepping it asks you first in a form naming each call; your answer is remembered for that document for the rest of the chat.
-Other functions that reach outside Stroom (`http-call`, `fetch-json` and `ask-ai`) are always refused.
+If it newly calls {{< xslt-func-link "host-name" >}} or {{< xslt-func-link "host-address" >}} (which look up names on the network), saving or stepping it asks you first in a form naming each call; your answer is remembered for that document for the rest of the chat.
+Other functions that reach outside Stroom ({{< xslt-func-link "http-call" >}}, {{< xslt-func-link "fetch-json" >}} and {{< xslt-func-link "ask-ai" >}}) are always refused.
 
 
 ## Steps for You

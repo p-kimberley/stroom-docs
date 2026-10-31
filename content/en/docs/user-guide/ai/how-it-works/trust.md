@@ -55,7 +55,7 @@ The client's model is never given anything with which it could approve its own c
 ## Other Safeguards
 
 * The model is told that memory, tool results and attachments are data, not instructions.
-* XSLT written by the agent may not call functions that reach outside Stroom (`http-call`, `fetch-json`, `ask-ai`), and may call the DNS lookups (`stroom:host-name`, `stroom:host-address`) only once the user agrees.
+* XSLT written by the agent may not call functions that reach outside Stroom ({{< xslt-func-link "http-call" >}}, {{< xslt-func-link "fetch-json" >}}, {{< xslt-func-link "ask-ai" >}}), and may call the DNS lookups ({{< xslt-func-link "host-name" >}}, {{< xslt-func-link "host-address" >}}) only once the user agrees.
 * Links in the agent's answers are added only for documents and streams its tools gave, not for anything the model wrote.
 * Charts are drawn by Stroom's own reviewed adapter script; no code from the model runs in the browser.
 * Every tool call and every decision on it is recorded in Stroom's audit log.

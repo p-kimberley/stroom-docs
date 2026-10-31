@@ -32,7 +32,7 @@ Stage | What it does
 `translation` | Raw Events to Events.
 `indexing` | Events to an index.
 `discovery` | Raw structured data straight to an index, with no Events.
-`reference` | A Raw Reference feed to the reference data maps that `stroom:lookup()` reads.
+`reference` | A Raw Reference feed to the reference data maps that {{< xslt-func-link "lookup" >}} reads.
 `records` | A source to a Records stream.
 `forwarding` | Events sent on, e.g. as CEF.
 

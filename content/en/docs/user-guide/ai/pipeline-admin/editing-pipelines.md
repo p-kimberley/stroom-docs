@@ -65,7 +65,7 @@ The agent can also change a pipeline it made: its elements' properties, and the 
 
 ## Reference Data
 
-* The agent lists the reference data maps the environment loads, with each map's key and value, and the loader pipeline and feeds behind it, so a translation can look values up with `stroom:lookup()`.
+* The agent lists the reference data maps the environment loads, with each map's key and value, and the loader pipeline and feeds behind it, so a translation can look values up with {{< xslt-func-link "lookup" >}}.
 * It can write the XSLT of a reference data pipeline from a mapping, and load a new table as a [reference data build]({{< relref "onboarding#reference-data" >}}).
 * It can attach reference data to a pipeline it made, so its lookups find their maps.
 

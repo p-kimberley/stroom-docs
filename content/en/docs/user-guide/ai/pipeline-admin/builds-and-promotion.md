@@ -24,7 +24,7 @@ This page is for whoever reviews and promotes builds: what the agent can and can
   It changes only documents it made there; a production document is changed through a working copy in the build, written back only when you approve promotion.
 * **What it never does:**
   It never writes to Elasticsearch (index templates and index drops are given to you, or your cluster admin, as requests to run), and never deletes streams; the only indexed data it removes is a build's own Lucene index, emptied before its streams are reprocessed, once you approve.
-  XSLT it saves may not call `http-call`, `fetch-json` or `ask-ai`, and calls `stroom:host-name` or `stroom:host-address` only once you agree.
+  XSLT it saves may not call {{< xslt-func-link "http-call" >}}, {{< xslt-func-link "fetch-json" >}} or {{< xslt-func-link "ask-ai" >}}, and calls {{< xslt-func-link "host-name" >}} or {{< xslt-func-link "host-address" >}} only once you agree.
   Processor filters for anything other than a build's own events (or records) or indexing pipelines are created disabled, for you to enable.
 
 

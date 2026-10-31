@@ -41,7 +41,7 @@ Tool | What it does | Changes
 `document_info` | A document's type, path, tags, history, version and dependencies. | No
 `document_links` | Follows dependency links (dependants or dependencies) from documents. | No
 `find_in_content` | Finds text in documents' content, such as XSLTs, text converters and dictionaries. | No
-`find_reference_data` | The reference data maps the environment loads, for `stroom:lookup()` in a translation, and the pipelines and feeds that load them. | No
+`find_reference_data` | The reference data maps the environment loads, for {{< xslt-func-link "lookup" >}} in a translation, and the pipelines and feeds that load them. | No
 `folder_contents` | An Explorer folder's documents, streams, processor filters and task counts; finds documents by name. | No
 `get_current_date` | Today's date in UTC. | No
 `get_current_datetime` | The current date and time in UTC. | No
