@@ -109,8 +109,6 @@ Tool | What it does | Changes
 `review_coverage` | Whole-feed coverage of an events pipeline: the kinds of event the sample missed, from the records its translation couldn't match. | No
 `list_visualisations` | The charting libraries installed, the kinds of chart each draws, and the Visualisations in Stroom. | No
 `xslt_lookups` | The reference data lookups XSLTs make, and which loaders write each map. | No
-`preview_extraction` | Tries a search extraction on the events of the attached dashboard's table (chat only in practice: it needs an attached dashboard). | No
-`propose_extraction_pipeline` | Offers a button to create a search extraction (chat only in practice: it needs an attached dashboard). | No
 
 
 ## Indexing
@@ -177,6 +175,8 @@ These tools work on the chat itself, or offer buttons in it, so the MCP endpoint
 * `current_results`: Snapshots the results of the attached query or dashboard.
 * `memory`, `task_list`, `read_turn` and `search_history`: The chat's memory, task list and history.
 * `propose_query`, `propose_query_change`, `propose_dashboard`, `propose_dashboard_change`, `propose_documentation_change`, `propose_code_change` and `propose_visualisation`: proposals the user applies with the chat's buttons.
+* `preview_extraction` and `propose_extraction_pipeline`: Try a search extraction on the events of the attached dashboard's table, and offer a button to create it.
+* `instruction_evidence` and `propose_instructions`: Gather the choices the user has made again and again in their own chats, and propose them as a folder's standing instructions (its `AGENTS` document), for the user to review and apply (see [Suggesting standing instructions]({{< relref "../pipeline-admin/configuration#suggesting-standing-instructions" >}})).
 
 
 ## Resources

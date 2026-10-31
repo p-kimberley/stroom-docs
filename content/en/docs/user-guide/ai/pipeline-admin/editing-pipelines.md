@@ -55,6 +55,8 @@ Instead, in a [build]({{< relref "onboarding#how-a-build-works" >}}):
 
 When it is done and checked, promotion writes working copies back over the production documents (after a backup), and puts new versions where their type's destination is.
 Promotion shows you the layout as a tree first, and asks before it changes anything.
+A working copy keeps any edits you made by hand to the production XSLT (see [Hand edits]({{< relref "hand-edits" >}})).
+If a production document is changed after its working copy is made, promotion shows you how the two differ and asks which to keep.
 
 The agent can also change a pipeline it made: its elements' properties, and the reference data its XSLT looks up (a feed and its loader pipeline).
 
@@ -71,8 +73,14 @@ The agent can also change a pipeline it made: its elements' properties, and the 
 ## Processing and Reprocessing
 
 * **Processor filters**: The agent can create a processor filter for a pipeline (asking you first), and disable one on a pipeline it made.
-  Filters that promotion hands over are disabled, for you to enable with a button.
-* **Reprocessing**: After changing a pipeline under development, it can process streams again through it (asking you first).
+  In a build, a filter for an events (or records) or indexing pipeline is created enabled once you approve it, and processing starts; any other (CEF output, reference data) is created disabled, for you to enable on the pipeline's **Processors** tab.
+  Filters that promotion hands over are disabled, for you to enable (see [Builds and promotion]({{< relref "builds-and-promotion#after-promotion" >}})).
+* **Reprocessing**: After changing a pipeline under development, it can process streams again through it (asking you first), at most 10 streams at a time.
+  As for a new processor filter, the pipeline's current code must first have stepped clean: after a change to its XSLT or text converter, the agent steps the streams again until they are clean, then reprocesses.
+  Stroom marks the earlier output of those streams deleted once the new output is written, but removes nothing from an index: before reprocessing into an Elasticsearch index that already holds those streams' documents, you are given the request to drop it (for your cluster admin); a build's own Lucene index is emptied once you approve.
+  An Elasticsearch data stream keeps the mapping it was made with, so a changed index template only applies once it is dropped.
+* **Verifying an index**: The agent verifies indexed events through Stroom, as a dashboard searches, never by querying the backend: the sample's streams, an exact match on each key field, and a time range, each search kept to the sample's streams, with each hit traced back to the record it came from.
+  Some searches find nothing without an error, and the agent avoids them: on Lucene, STARTS_WITH, ENDS_WITH, CONTAINS on a keyword field, and IN with a value holding a space; on Elasticsearch, a wildcard on an `ip` field (use a CIDR range), STARTS_WITH and CONTAINS.
 * **Waiting for processing**: It waits until each input stream's processing has ended, then reports the Events (or Reference) and Error streams it wrote.
 
 
@@ -90,6 +98,7 @@ The agent can also change a pipeline it made: its elements' properties, and the 
 * **Across the cluster**: What is failing today and why, backlogs, queued and stuck tasks by node, and task lists, from processor tasks (this needs _Manage Processors_).
 * **Errors**: The errors in Error streams, grouped by severity, element and message, each triaged as blocking, for review, or benign, and the pipeline's own elements told from inherited ones.
   Your own [error triage rules]({{< relref "configuration#error-triage-rules" >}}) are applied first.
+  The pipeline's own errors are looked at before those its templates cause; an error you tell the agent is harmless is recorded with your reason in the pipeline's documentation, and then reported as benign.
 * **Events**: What a stream's Events hold: counts per event type and action, and how often each part of the event-logging schema is filled in.
 * **Tracing**: A stream, or one event in it, traced back to its raw stream, the record within it, the pipeline, and the XSLTs and text converters it went through.
 * **Coverage**: The kinds of event a feed holds that a generated translation doesn't match yet, from the records it logged as unmatched.

@@ -19,6 +19,7 @@ These settings, all under `stroom.ai`, fit them to your environment.
 
 `builds.workspaceFolder` (default `MCP Workspace`) is the folder below `System` in which each build gets a folder of its own.
 Users who onboard sources need permission to create folders in it.
+Renaming the setting leaves builds already in the old folder behind: rename the folder in the explorer tree to match.
 
 
 ## Pipeline Stages and Templates
@@ -108,6 +109,74 @@ The agent reads those that apply to the folders, feeds and documents it works on
 * Folders that searches should leave out
 
 Each read is recorded in the audit log.
+
+Some sections of an `AGENTS` document are applied by the tools themselves, not only given to the agent.
+Each is a heading followed by bullets of the form `- key: value, value`:
+
+* `## Required imports`: shared XSLTs that every XSLT of a stage imports (stages: `translation`, `records`, `indexing`, `reference`, `cef`).
+  Every XSLT the agent generates for that stage imports them, and one written by hand without them is refused when saved.
+
+  ```markdown
+  ## Required imports
+  - translation: Stream-Meta-V1
+  - indexing: Common-Index-V1, Lookups-V2
+  ```
+
+* `## Component templates`: Elasticsearch component templates your index templates always (`include`) or never (`exclude`) use.
+  The index templates the agent proposes follow them, and a template that breaks them is pointed out.
+
+  ```markdown
+  ## Component templates
+  - include: logs-ilm-90d, org-base
+  - exclude: legacy-base
+  ```
+
+* `## Documentation`: how a pipeline's documentation lays out its field mapping: by event type (the default: the fields every event type has in one table, then a table per event type), or `compact` (one table).
+
+  ```markdown
+  ## Documentation
+  - field mapping: compact
+  ```
+
+The agent also follows how your environment's pipelines already write common elements: shared templates that two or more of your event (or indexing) pipelines call are used in its new XSLTs in the same way, and it warns when an XSLT doesn't call one.
+
+
+### Suggesting Standing Instructions
+
+Choices you make again and again in the chat, such as how a field is mapped or what a feed is called, are lost when each chat ends.
+The agent can suggest writing them down as standing instructions, so the next build follows them without asking.
+
+It does so in the Ask Stroom AI chat only, at two points:
+
+* **When you ask**, e.g. _"Suggest standing instructions for /Feeds/Acme from my recent chats"_.
+* **After a build is promoted**: once you have what you need about the promotion, the agent looks for repeated choices and, if it finds any, offers once to propose them for the feed's folder.
+  It doesn't offer if it finds none, or if the folder's `AGENTS` document says them already.
+
+The agent works from your own chats only:
+
+1. It reads your chats from the last 90 days (up to the 200 most recent), and gathers the answers you gave its forms, grouped by question, and what you wrote yourself.
+   A choice made the same way in two or more chats, and never another way, is _repeated_; one made different ways is _mixed_, and is not a rule.
+1. It drafts rules only from repeated choices, or from what you said you always want, citing the chats each comes from.
+   It reads the folder's `AGENTS` documents first, so nothing is said twice.
+   A preference that is yours alone goes in your [memory]({{< relref "../how-it-works/memory" >}}) instead, as it isn't a rule for everyone working in the folder.
+1. It proposes the rules for a folder as a diff, with a summary of what they do and why, and a _Review and apply_ button.
+   Nothing changes until you apply it, and you can leave out any part of it.
+
+What applying does depends on the folder:
+
+* **A folder with an `AGENTS` document**: the change is applied to the document's editor, unsaved, for you to check and save, which needs Edit permission on it.
+* **A folder without one**: applying creates the `AGENTS` document in the folder, with the parts you kept, and saves it, which needs Create permission in the folder.
+  If someone has created one since the proposal was made, applying is refused, and you can ask for the change to be proposed to that document instead.
+
+A line in one of the sections the tools apply themselves that names nothing they know (e.g. a misspelt stage such as `indexng`) is pointed out with the proposal, so it can be corrected before you apply it.
+Creating or changing an `AGENTS` document is recorded in the audit log, as any other document change is.
+
+Two settings, under `stroom.ai.instructionSuggestions`, control what counts as a repeated choice:
+
+Setting | Default | What it does
+-- | -- | --
+`evidenceWindow` | `90d` | How far back a user's chats are read. Chats already deleted by `stroom.ai.chatRetention` aren't read.
+`minChats` | `2` | How many chats must make a choice the same way, and none another way, before it is suggested as a rule.
 
 
 ## Guides for the Agent

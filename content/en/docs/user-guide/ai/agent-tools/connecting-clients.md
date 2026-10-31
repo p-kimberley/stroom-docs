@@ -118,3 +118,8 @@ The workspace belongs to the session: it is deleted when the session ends, or af
   A `404` for a request in a session means that session has ended (or is on another node); the client starts a new one.
 * **A tool you expect isn't listed**: No tool policy grants its category to you, or grants only read-only access and the tool changes things.
 * **A call says it needs approval**: It changes something, so you are asked first (see [Agent Tools]({{< relref "_index.md#how-the-tools-are-governed" >}})).
+* **A call that changes something is refused**: Your client can't show forms (MCP elicitation), so you can't be asked; its read-only calls still work.
+  Use a client that shows forms, such as VS Code or Claude Code.
+* **The agent says a tool it needs is missing, or stops at a step**: Clients such as VS Code hide some of a server's tools behind tools that turn a group on (`activate_*`).
+  The agent is told to turn the group on; if it doesn't, ask it to, or turn all of Stroom's tools on in the client's tool picker.
+* **Large results ask to run a terminal command**: Some clients save a large tool result to a file; the agent is told to read it with the client's own file tool, which needs no approval, not a terminal command.

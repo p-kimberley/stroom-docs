@@ -72,8 +72,12 @@ A chat keeps its mode, including for work carried on after an approval or a resu
 ## Choosing a Model
 
 The model box beside the mode lists the models your administrator has set up.
-The one you choose is kept in your settings, for every chat.
+The one you choose is kept in your settings, and used from the next question of the open chat.
 If you haven't chosen one, or yours has been removed, the default model is used.
+If you choose the default model, you follow it: when your administrator changes the default model, you use the new one from your next new chat.
+While you follow the default, a chat that has already been answered keeps the model it was answered with, including when you go back to it later, unless you choose another for it.
+
+The model box shows the model the open chat's next question will use: the one you picked for this chat, else your own choice, else the one the chat has been answered with, else the default.
 
 Models differ in what they are good at and in the size of their context window, which the context meter shows (see [Context and Memory]({{< relref "using-the-chat#context-and-memory" >}})).
 

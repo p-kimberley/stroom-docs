@@ -136,6 +136,7 @@ Secrets are masked.
 
 * `/remember The ACME feeds are owned by the network team.`: Adds a fact to your memory, loaded into every chat.
 * _"Remember that our firewall events go to the FW-EVENTS index."_
+* _"Suggest standing instructions for /Feeds/Acme from my recent chats."_: Proposes the choices you keep making as the folder's `AGENTS` document, for you to review and apply (see [Suggesting standing instructions]({{< relref "../pipeline-admin/configuration#suggesting-standing-instructions" >}})).
 * `/compact` when a long chat is running out of context, or `/new` to start afresh.
 
 See [Using the chat]({{< relref "using-the-chat#commands" >}}) for every command.

@@ -73,7 +73,16 @@ The property defaults are those every user starts with.
 ### How Users' Settings Follow the Defaults
 
 * A user who has never saved their chat settings uses the defaults, and follows any later change to them.
-* Once a user presses **OK** in the **Settings** dialog, their settings are saved as their own, and no longer follow the defaults.
+* A user's settings are saved as their own when they press **OK** in the **Settings** dialog, choose a model in the chat's model box, or move the chat's dock.
+  From then on, they no longer follow later changes to the defaults, apart from the model.
+* The model is followed on its own.
+  A user whose saved settings have the default model chosen keeps following the default model, so they get a new default model when it is changed.
+  Only a user who chose a different model keeps using it.
+* A chat keeps the model it started with.
+  A new default model is used from each user's next new chat, so a chat already under way isn't switched to another model part-way through.
+* The chat fetches the user's settings and the defaults again each time it is opened, so a change an administrator makes reaches users with Stroom open without them reloading it.
+  The **Settings** dialog also fetches them again before it is shown.
+* Moving the dock or choosing a model saves only that change, on top of the settings Stroom holds for the user now, so it doesn't put back a choice an administrator has cleared, or undo a change the user made in another browser.
 * A user whose settings name no model, or a model that no longer exists, gets the default model.
   With no default model set, the chat says to choose one or to ask an administrator.
 
@@ -83,13 +92,16 @@ The property defaults are those every user starts with.
 A user with the _Manage Properties_ permission sees three more buttons in the **Settings** dialog:
 
 * **Set As Default** makes the settings in the dialog everyone's defaults, by writing them to the `stroom.askStroomAi` properties.
-  Users who use the defaults get them when they next load Stroom.
+  Users who use the defaults get them when they next open the chat.
+  If this changes the default model, you are then asked whether to make everyone use it now: confirming clears the choice of model from every user's saved settings, keeping their other settings, so that users who chose their own model use the new default too, from their next new chat; chats already under way keep their model.
+  The change is recorded in the audit log.
 * **Reset Everyone to Defaults…**, after you confirm, removes every user's saved chat settings, so that everyone uses the defaults (model, prompts, dock position and so on).
   Their own choices are lost.
-  Users with Stroom open get the defaults when they next load it.
+  Users with Stroom open get the defaults when they next open the chat.
   The reset is recorded in the audit log.
 * **Restore From Defaults**, which every user sees, fills the dialog with the defaults, e.g. to undo their own changes.
-  Pressing **OK** then saves them as the user's own settings; to follow the defaults again from then on, an administrator can use **Reset Everyone to Defaults…**.
+  Pressing **OK** then saves them as the user's own settings.
+  The user follows the default model again from then on, but not the other defaults; to follow those again, an administrator can use **Reset Everyone to Defaults…**.
 
 To set up the defaults for a new installation:
 
@@ -212,4 +224,5 @@ The _AI Chat Retention_ job (hourly) removes old chats and workspace files, and 
 * **_Test Model_ says the model isn't found**: The server doesn't serve the _Model ID_ as written; the alert's detail lists the models it does serve.
 * **Nothing streams**: Some OpenAI-compatible servers don't stream; the answer then arrives whole.
 * **The context meter shows nothing, or chats are never compacted**: The model's _Maximum context window tokens_ is `0`.
-* **Users still see old settings after Set As Default**: They have saved their own settings; use **Reset Everyone to Defaults…**, or ask them to use **Restore From Defaults**.
+* **Users still use an old model after Set As Default**: They chose their own model, and the offer to make everyone use the new one was declined; ask them to choose it in the model box, or use **Reset Everyone to Defaults…** (which resets all their settings, not only the model).
+* **Users still see other old settings after Set As Default**: They have saved their own settings; use **Reset Everyone to Defaults…**, or ask them to use **Restore From Defaults**.
